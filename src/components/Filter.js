@@ -1,13 +1,9 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { FilterContext } from '../App'
 
 const Filter = () => {
-    const [activity, setActivity] = useState({});
-    const [filters, setFilters] = useState({
-        type:'',
-        price:'',
-        participants:'',
-        accessiblity:'',
-    });
+
+    const {setActivity, filters, setFilters} = useContext(FilterContext)
 
     const randomActivity = () => {
         fetch('https://www.boredapi.com/api/activity/').then((response) => response.json()).then((data) => {setActivity(data)});
@@ -43,6 +39,13 @@ const Filter = () => {
         fetch(`https://www.boredapi.com/api/activity?type=${filters.type}&price=${filters.price}&participants=${filters.participants}&minaccessibility=${minaccessibility}&maxaccessibility=${maxaccessibility}`)
         .then(response => response.json())
         .then(data => setActivity(data));
+
+        setFilters({
+            type:'',
+            price:'',
+            participants:'',
+            accessiblity:'',
+        })
     }
 
     return(
@@ -65,7 +68,7 @@ const Filter = () => {
                 <label htmlFor='price'>Price:</label>
                 <input type='number' name='price' min='0' max='1' id='price' value={filters.price} onChange={(e) => {handleChange(e)}} />
                 <label htmlFor='participants'>Participants:</label>
-                <input type='number' name='participants' min='1' max='5' id='participants' onChange={(e) => {handleChange(e)}} />
+                <input type='number' value={filters.participants} name='participants' min='1' max='5' id='participants' onChange={(e) => {handleChange(e)}} />
                 <label htmlFor='accessiblitiy'>Accessiblity:</label>
                 <select id='accessiblity' name='accessiblity' value={filters.accessiblity} onChange={(e) => {handleChange(e)}}>
                     <option disabled selected value=''>--Select Accessiblity--</option>
@@ -79,4 +82,4 @@ const Filter = () => {
     );
 };
 
-export default Filter
+export default Filter;

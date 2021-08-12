@@ -1,4 +1,4 @@
-import { useState, createContext} from 'react'
+import { useState, createContext } from 'react'
 import Filter from './components/Filter'
 import Activity from './components/Activity'
 
@@ -17,11 +17,11 @@ function App() {
     <>
     <FilterContext.Provider value={{activity, setActivity, filters, setFilters}}>
       <Filter />
-      {activity.activity && <Activity />}
+      {(activity.activity || activity.error) && <Activity />}
     </FilterContext.Provider>
     </>
   );
 }
 
 export default App;
-export {FilterContext}
+export { FilterContext }

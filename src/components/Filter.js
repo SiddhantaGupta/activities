@@ -2,12 +2,13 @@ import { useContext } from "react";
 import { FilterContext } from '../App'
 
 const Filter = () => {
-
-    const {setActivity, filters, setFilters} = useContext(FilterContext)
-
+    const { setActivity, filters, setFilters } = useContext(FilterContext);
+        
     const randomActivity = () => {
-        fetch('https://www.boredapi.com/api/activity/').then((response) => response.json()).then((data) => {setActivity(data)});
-};
+        fetch('https://www.boredapi.com/api/activity/').then((response) => response.json()).then((data) => {setActivity(data)}).catch(e => { const err = {error: e};
+        setActivity(err);
+    });
+    };
 
     const handleChange = (e) => {
         const new_filters = {
@@ -22,6 +23,9 @@ const Filter = () => {
 
         let minaccessibility = 0.0;
         let maxaccessibility = 1.0;
+        let minprice = '';
+        let maxprice = '';
+
         if(filters.accessiblity === 'low')
         {
             maxaccessibility = 0.3
@@ -36,9 +40,20 @@ const Filter = () => {
             minaccessibility = 0.7;
         }
 
-        fetch(`https://www.boredapi.com/api/activity?type=${filters.type}&price=${filters.price}&participants=${filters.participants}&minaccessibility=${minaccessibility}&maxaccessibility=${maxaccessibility}`)
+        if (filters.price === '1')
+        {
+            filters.price = '';
+            minprice = 0.1;
+            maxprice = 1;
+        }
+
+        fetch(`https://www.boredapi.com/api/activity?type=${filters.type}&price=${filters.price}&minprice=${minprice}&maxprice=${maxprice}&participants=${filters.participants}&minaccessibility=${minaccessibility}&maxaccessibility=${maxaccessibility}`)
         .then(response => response.json())
-        .then(data => setActivity(data));
+        .then(data => setActivity(data))
+        .catch(e => {
+            const err = {error: e}
+            setActivity(err)
+        });
 
         setFilters({
             type:'',
@@ -66,9 +81,13 @@ const Filter = () => {
                     <option value='busywork'>Busy Work</option>
                 </select>
                 <label htmlFor='price'>Price:</label>
-                <input type='number' name='price' min='0' max='1' id='price' value={filters.price} onChange={(e) => {handleChange(e)}} />
+                <select name='price' id='price' value={filters.price} onChange={(e) => {handleChange(e)}}>
+                    <option value=''>--Select Price--</option>
+                    <option value='0'>Free</option>
+                    <option value='1'>Paid</option>
+                </select>
                 <label htmlFor='participants'>Participants:</label>
-                <input type='number' value={filters.participants} name='participants' min='1' max='5' id='participants' onChange={(e) => {handleChange(e)}} />
+                <input type='number' value={filters.participants} name='participants' min='1' max='10' id='participants' onChange={(e) => {handleChange(e)}} />
                 <label htmlFor='accessiblitiy'>Accessiblity:</label>
                 <select id='accessiblity' name='accessiblity' value={filters.accessiblity} onChange={(e) => {handleChange(e)}}>
                     <option disabled selected value=''>--Select Accessiblity--</option>

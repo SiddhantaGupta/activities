@@ -24,13 +24,16 @@ const Activity = () => {
         cost = 'High';
 
     return (
+        <>
+        {activity.error ? <div>{activity.error}</div> :
         <div>
             <h1>{activity.activity}</h1>
             <h4>{activity.type}</h4>
             <p>Participants: {activity.participants}</p>
             <p>Cost: {cost}</p>
             <p>Difficulty: {difficulty}</p>
-        </div>
+        </div>}
+        </>
     )
 }
 

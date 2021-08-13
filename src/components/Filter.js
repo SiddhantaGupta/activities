@@ -2,12 +2,11 @@ import { useContext } from "react";
 import { FilterContext } from '../App'
 
 const Filter = () => {
-    const { changeButton, setActivity, filters, setFilters } = useContext(FilterContext);
+    const { setActivity, filters, setFilters } = useContext(FilterContext);
         
     const randomActivity = () => {
         fetch('https://www.boredapi.com/api/activity/').then((response) => response.json()).then((data) => {setActivity(data)}).catch(e => { const err = {error: e};
         setActivity(err);
-        changeButton();
     });
     };
 
@@ -62,7 +61,6 @@ const Filter = () => {
             participants:'',
             accessiblity:'',
         })
-        changeButton();
     }
 
     return(

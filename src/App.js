@@ -12,10 +12,11 @@ function App() {
       participants:'',
       accessiblity:'',
   });
+  const [btn_switch, setSwitch] = useState(true);
 
   return (
     <>
-    <FilterContext.Provider value={{activity, setActivity, filters, setFilters}}>
+    <FilterContext.Provider value={{activity, setActivity, filters, setFilters, btn_switch, setSwitch}}>
       <Filter />
       {(activity.activity || activity.error) && <Activity />}
     </FilterContext.Provider>

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { FilterContext } from '../App';
 
-function Save({changeButton}) {
-    const { activity } = useContext(FilterContext);
+function Save() {
+    const { changeButton, activity } = useContext(FilterContext);
 
     const saveactivity = () => {
         let activity_id = [];

@@ -1,4 +1,9 @@
-function Remove({changeButton}) {
+import { useContext } from 'react'
+import { FilterContext } from '../App'
+
+function Remove() {
+    const { changeButton } = useContext(FilterContext);
+
     const removeItem = (e) => {
         let id;
         id = e.target.parentElement.id;

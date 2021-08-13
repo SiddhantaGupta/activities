@@ -4,12 +4,11 @@ import Save from './Save'
 import Remove from './Remove'
 
 const Activity = () => {
-    const {activity, btn_switch, setSwitch} = useContext(FilterContext);
+    const {btn_switch, activity} = useContext(FilterContext);
 
     let difficulty = 'None';
     let cost = 'Free';
-    let savedlist = [];
-
+    
     if (activity.accessibility < 0.3)
         difficulty = 'Low';
     else if (activity.accessibility > 0.3 && activity.accessibility < 0.7)
@@ -25,23 +24,6 @@ const Activity = () => {
         cost = 'Medium';
     else if (activity.price > 0.7)
         cost = 'High';
-    const changeButton = () => {
-    if (localStorage.getItem('savedactivities') !== null)
-    {
-        savedlist = JSON.parse(localStorage.getItem('savedactivities'));
-        for (let i=0; i <= savedlist.length; i++) {
-            if (activity.key === savedlist[i]) {
-                setSwitch(false);
-                break;
-            }
-            else if (activity.key !== savedlist[i]){
-                setSwitch(true);
-            }
-        }
-
-        
-    }
-}
 
     return (
         <>
@@ -52,7 +34,7 @@ const Activity = () => {
             <p>Participants: {activity.participants}</p>
             <p>Cost: {cost}</p>
             <p>Difficulty: {difficulty}</p>
-            {btn_switch ? <Save changeButton={changeButton} /> : <Remove changeButton={changeButton}/>}
+            {btn_switch ? <Save /> : <Remove />}
         </div>}
         </>
     )

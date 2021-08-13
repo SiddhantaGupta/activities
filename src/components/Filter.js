@@ -2,11 +2,12 @@ import { useContext } from "react";
 import { FilterContext } from '../App'
 
 const Filter = () => {
-    const { setActivity, filters, setFilters } = useContext(FilterContext);
+    const { changeButton, setActivity, filters, setFilters } = useContext(FilterContext);
         
     const randomActivity = () => {
         fetch('https://www.boredapi.com/api/activity/').then((response) => response.json()).then((data) => {setActivity(data)}).catch(e => { const err = {error: e};
         setActivity(err);
+        changeButton();
     });
     };
 
@@ -61,6 +62,7 @@ const Filter = () => {
             participants:'',
             accessiblity:'',
         })
+        changeButton();
     }
 
     return(
@@ -69,7 +71,7 @@ const Filter = () => {
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label htmlFor='type'>Type:</label>
                 <select id='type' name='type' value={filters.type} onChange={(e) => {handleChange(e)}}>
-                    <option disabled selected value=''>--Select an option--</option>
+                    <option disabled value=''>--Select an option--</option>
                     <option value='education'>Education</option>
                     <option value='recreational'>Recreational</option>
                     <option value='social'>Social</option>
@@ -90,7 +92,7 @@ const Filter = () => {
                 <input type='number' value={filters.participants} name='participants' min='1' max='10' id='participants' onChange={(e) => {handleChange(e)}} />
                 <label htmlFor='accessiblitiy'>Accessiblity:</label>
                 <select id='accessiblity' name='accessiblity' value={filters.accessiblity} onChange={(e) => {handleChange(e)}}>
-                    <option disabled selected value=''>--Select Accessiblity--</option>
+                    <option disabled value=''>--Select Accessiblity--</option>
                     <option value='low'>Low</option>
                     <option value='medium'>Medium</option>
                     <option value='high'>High</option>

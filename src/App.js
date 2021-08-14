@@ -1,6 +1,10 @@
-import { useState, createContext } from 'react'
-import Filter from './components/Filter'
-import Activity from './components/Activity'
+import { useState, createContext } from 'react';
+import Filter from './components/Filter';
+import Activity from './components/Activity';
+import Navbar from './components/Navbar';
+import Favourites from './components/Favourites';
+import Error from './components/Error'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const FilterContext = createContext();
 
@@ -16,10 +20,24 @@ function App() {
   
   return (
     <>
-    <FilterContext.Provider value={{activity, setActivity, filters, setFilters, btn_switch, setSwitch}}>
-      <Filter />
-      {(activity.activity || activity.error) && <Activity />}
-    </FilterContext.Provider>
+    <Router>
+            <FilterContext.Provider value={{activity, setActivity, filters, setFilters, btn_switch, setSwitch}}>
+      <Navbar />
+        <Switch>
+
+          <Route exact path='/'>
+              <Filter />
+              {(activity.activity || activity.error) && <Activity item={activity} />}
+          </Route>
+          <Route path='/favourites'>
+            <Favourites />
+          </Route>
+          <Route path='*'>
+            <Error />
+          </Route>
+        </Switch>
+            </FilterContext.Provider>
+    </Router>
     </>
   );
 }

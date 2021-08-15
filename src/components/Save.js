@@ -1,5 +1,5 @@
-import { useContext } from 'react'
-import { FilterContext } from '../App'
+import { useContext } from 'react';
+import { FilterContext } from '../App';
 
 function Save({act}) {
     const { setSwitch } = useContext(FilterContext);
@@ -18,9 +18,9 @@ function Save({act}) {
     }
 
     return (
-        <>
+        <div>
         <button type='button' data-id={act} onClick={e => saveactivity(e)}>Save</button>
-        </>
+        </div>
     )
 }
 

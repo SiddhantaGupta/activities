@@ -21,22 +21,21 @@ function App() {
   return (
     <>
     <Router>
-            <FilterContext.Provider value={{activity, setActivity, filters, setFilters, btn_switch, setSwitch}}>
-      <Navbar />
-        <Switch>
-
-          <Route exact path='/'>
-              <Filter />
-              {(activity.activity || activity.error) && <Activity item={activity} />}
-          </Route>
-          <Route path='/favourites'>
-            <Favourites />
-          </Route>
-          <Route path='*'>
-            <Error />
-          </Route>
-        </Switch>
-            </FilterContext.Provider>
+      <FilterContext.Provider value={{activity, setActivity, filters, setFilters, btn_switch, setSwitch}}>
+        <Navbar />
+          <Switch>
+            <Route exact path='/'>
+                <Filter />
+                {(activity.activity || activity.error) && <Activity item={activity} />}
+            </Route>
+            <Route path='/favourites'>
+              <Favourites />
+            </Route>
+            <Route path='*'>
+              <Error />
+            </Route>
+          </Switch>
+        </FilterContext.Provider>
     </Router>
     </>
   );

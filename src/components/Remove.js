@@ -1,5 +1,5 @@
-import { useContext } from 'react'
-import { FilterContext } from '../App'
+import { useContext } from 'react';
+import { FilterContext } from '../App';
 
 function Remove({act}) {
     const { setSwitch } = useContext(FilterContext);
@@ -14,9 +14,9 @@ function Remove({act}) {
     }
 
     return (
-        <>
+        <div>
         <button type='button' data-id={act} onClick={(e) => removeItem(e)}>remove</button>
-        </>
+        </div>
     )
 }
 

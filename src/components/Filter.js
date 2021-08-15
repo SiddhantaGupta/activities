@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FilterContext } from '../App'
+import { FilterContext } from '../App';
 
 const Filter = () => {
     const { setActivity, filters, setFilters } = useContext(FilterContext);
@@ -65,7 +65,6 @@ const Filter = () => {
 
     return(
         <div>
-            <button type='submit' onClick={randomActivity}>RANDOM</button>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label htmlFor='type'>Type:</label>
                 <select id='type' name='type' value={filters.type} onChange={(e) => {handleChange(e)}}>
@@ -95,7 +94,10 @@ const Filter = () => {
                     <option value='medium'>Medium</option>
                     <option value='high'>High</option>
                 </select>
-                <button type='submit'>Submit</button>
+                <div>
+                <button type='submit'>FILTER</button>
+                <button type='submit' onClick={randomActivity}>RANDOM</button>
+                </div>
             </form>
         </div>
     );

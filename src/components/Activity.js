@@ -1,7 +1,7 @@
-import { useContext, useEffect } from 'react'
-import { FilterContext } from '../App'
-import Save from './Save'
-import Remove from './Remove'
+import { useContext, useEffect } from 'react';
+import { FilterContext } from '../App';
+import Save from './Save';
+import Remove from './Remove';
 
 const Activity = ({item}) => {
     const {btn_switch, setSwitch} = useContext(FilterContext);
@@ -37,20 +37,20 @@ const Activity = ({item}) => {
                     break;
                 }
             }
-        } console.log(btn_switch)
+        }
     })
 
     return (
         <>
         {item.error ? <div>{item.error}</div> :
-        <div>
+        <article>
             <h1>{item.activity}</h1>
             <h4>{item.type}</h4>
             <p>Participants: {item.participants}</p>
             <p>Cost: {cost}</p>
             <p>Difficulty: {difficulty}</p>
             {btn_switch ? <Save act={item.key} /> : <Remove act={item.key} />}
-        </div>}
+        </article>}
         </>
     )
 }

@@ -1,6 +1,6 @@
-import Activity from './Activity'
-import { useEffect, useState, useContext } from 'react'
-import { FilterContext } from '../App'
+import Activity from './Activity';
+import { useEffect, useState, useContext } from 'react';
+import { FilterContext } from '../App';
 
 function Favourites () {
     const { btn_switch } = useContext(FilterContext)
@@ -25,13 +25,11 @@ function Favourites () {
     }
     if (localStorage.getItem('savedactivities') === null){
         return (
-            <div>
-                There are no saved items.
-            </div>
+            <p>There are no saved items.</p>
         )
     }
     return (
-        <section>
+        <section className='my-grid'>
             {favlist.map((fav) => {
                 return <Fav key={fav.key} item={fav}/>
             })}

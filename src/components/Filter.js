@@ -1,14 +1,21 @@
-import { useContext } from "react";
+import { useContext, useEffect } from 'react';
 import { FilterContext } from '../App';
 
 const Filter = () => {
     const { setActivity, filters, setFilters } = useContext(FilterContext);
         
     const randomActivity = () => {
-        fetch('https://www.boredapi.com/api/activity/').then((response) => response.json()).then((data) => {setActivity(data)}).catch(e => { const err = {error: e};
+        fetch('https://www.boredapi.com/api/activity/')
+        .then((response) => response.json())
+        .then((data) => {setActivity(data)})
+        .catch(e => { const err = {error: e};
         setActivity(err);
     });
     };
+
+    useEffect(() => {
+        randomActivity();
+    }, [])
 
     const handleChange = (e) => {
         const new_filters = {
@@ -95,8 +102,8 @@ const Filter = () => {
                     <option value='high'>High</option>
                 </select>
                 <div>
-                <button type='submit'>FILTER</button>
-                <button type='submit' onClick={randomActivity}>RANDOM</button>
+                <button type='submit' className='fetch-activity'>FILTER</button>
+                <button type='button' className='fetch-activity' onClick={randomActivity}>RANDOM</button>
                 </div>
             </form>
         </div>

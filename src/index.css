@@ -62,7 +62,7 @@ article p {
 
 /* Activity request */
 
-button[type=submit] {
+.fetch-activity {
     width: 45%;
     padding: 10px;
     background-color: black;
@@ -116,4 +116,17 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+/* No activities */
+
+.not-found {
+    width: 50%;
+    margin: 75px auto;
+    border: 4px solid black;
+    padding: 50px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 50px;
+    background-color: white;
 }

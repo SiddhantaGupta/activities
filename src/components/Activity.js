@@ -4,7 +4,7 @@ import Save from './Save';
 import Remove from './Remove';
 
 const Activity = ({item}) => {
-    const {btn_switch, setSwitch} = useContext(FilterContext);
+    const { btn_switch, setSwitch } = useContext(FilterContext);
 
     let difficulty = 'None';
     let cost = 'Free';
@@ -39,10 +39,9 @@ const Activity = ({item}) => {
             }
         }
     })
-
     return (
         <>
-        {item.error ? <div>{item.error}</div> :
+        {item.error ? <p className='not-found'>{item.error}</p> :
         <article>
             <h1>{item.activity}</h1>
             <h4>{item.type}</h4>

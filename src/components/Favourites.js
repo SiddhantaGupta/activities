@@ -5,11 +5,12 @@ import { FilterContext } from '../App';
 function Favourites () {
     const { btn_switch } = useContext(FilterContext)
     const [favlist, setFavlist] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
     const templist = [];
 
     useEffect(() => {
         fetchData();
-    }, [btn_switch])
+    }, [btn_switch]);
 
     const saved_fav = JSON.parse(localStorage.getItem('savedactivities'));
     const fetchData = async () => {
@@ -20,21 +21,29 @@ function Favourites () {
             const data = await response.json()
             templist.push(data);
         }
-        setFavlist(templist)
+        setIsLoading(false);
+        setFavlist(templist);
     }
     }
-    if (localStorage.getItem('savedactivities') === null){
+    if (localStorage.getItem('savedactivities') ===  null || saved_fav.length === 0){
         return (
-            <p>There are no saved items.</p>
+            <p className='not-found'>There are no saved items.</p>
         )
     }
-    return (
-        <section className='my-grid'>
-            {favlist.map((fav) => {
-                return <Fav key={fav.key} item={fav}/>
-            })}
-        </section>
-    )
+    else if (isLoading) {
+        return (
+            <p className='not-found'>Loading...</p>
+        )
+    }
+    else {
+        return (
+            <section className='my-grid'>
+                {favlist.map((fav) => {
+                    return <Fav key={fav.key} item={fav}/>
+                })}
+            </section>
+        )
+    }
 }
 
 function Fav({item}) {

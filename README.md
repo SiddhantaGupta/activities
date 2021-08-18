@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+## How to Run?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app was created using Create React App. To run this package follow the steps below
 
-## Available Scripts
+1. Clone the github repository.
+2. Install Node.js.
+3. cd into the activities folder using your terminal.
+4. run command `npm install` to install all the dependencies for the project.
+5. run command `npm start` to start the server.
 
-In the project directory, you can run:
+## What is the project?
 
-### `yarn start`
+This project is a single page front end web application built using React and Node.js for a free 3rd party API called the [Bored API](https://www.boredapi.com/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+There are two pages in the website that can be navigated to using the links in the navigation bar found at the top of the website.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. #### Activities Page
 
-### `yarn test`
+This is the default page where users can fetch an activity. The activity fetched can be random using the Random button on page, alternatively users can also do an advanced search using the Filter button and selecting different filters for their search parameters to suit their needs.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+On this page users can also save activities that they like. The data is stored in the browsers local storage and can be viewed later when the user desires.
 
-### `yarn build`
+2. #### Favourites Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+On this page users can view their saved activities and also remove activities that they don't like from thier saved list.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tech Stack used for the project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React
+- Create React App
 
-### `yarn eject`
+## About [Bored API](https://www.boredapi.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The Bored API helps you find things to do when you're bored! There are fields like the number of participants, activity type, and more that help you narrow down your results.

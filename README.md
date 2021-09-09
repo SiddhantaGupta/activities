@@ -31,7 +31,8 @@ On this page users can view their saved activities and also remove activities th
 ## Tech Stack used for the project
 
 - React
-- Create React App
+- JavaScript
+- node.js
 
 ## About [Bored API](https://www.boredapi.com)
 

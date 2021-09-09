@@ -8,7 +8,7 @@ This app was created using Create React App. To run this package follow the step
 4. run command `npm install` to install all the dependencies for the project.
 5. run command `npm start` to start the server.
 
-## What is the project?
+## About the project?
 
 This project is a single page front end web application built using React and Node.js for a free 3rd party API called the [Bored API](https://www.boredapi.com).
 

@@ -10,7 +10,7 @@ This app was created using Create React App. To run this package follow the step
 
 ## What is the project?
 
-This project is a single page front end web application built using React and Node.js for a free 3rd party API called the [Bored API](https://www.boredapi.com/).
+This project is a single page front end web application built using React and Node.js for a free 3rd party API called the [Bored API](https://www.boredapi.com).
 
 There are two pages in the website that can be navigated to using the links in the navigation bar found at the top of the website.
 
@@ -20,15 +20,21 @@ This is the default page where users can fetch an activity. The activity fetched
 
 On this page users can also save activities that they like. The data is stored in the browsers local storage and can be viewed later when the user desires.
 
+![Activities Page: Search for an activity to do when you are bored](./src/assets/site_screenshots/activities_screenshot.png)
+
 2. #### Favourites Page
 
 On this page users can view their saved activities and also remove activities that they don't like from thier saved list.
+
+![Favourites Page: Find all your saved activities](./src/assets/site_screenshots/favourites_screenshot.png)
 
 ## Tech Stack used for the project
 
 - React
 - Create React App
 
-## About [Bored API](https://www.boredapi.com/)
+## About [Bored API](https://www.boredapi.com)
 
 The Bored API helps you find things to do when you're bored! There are fields like the number of participants, activity type, and more that help you narrow down your results.
+
+Visit the [Bored API](https://www.boredapi.com) website: https://www.boredapi.com

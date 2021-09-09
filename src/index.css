@@ -9,6 +9,11 @@ body {
     font-family: Baskerville, "Baskerville Old Face", "Goudy Old Style", Garamond, "Times New Roman", serif;
     background-image: url('./assets/site-background.jpg');
     background-repeat: repeat;
+    background-size: 1500px 700px;
+}
+
+label {
+    color: white;
 }
 
 /* Activity cards */
